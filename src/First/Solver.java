@@ -12,14 +12,14 @@ public class Solver {
 
         Discriminant d = new Discriminant(a, b, c);
 
-        if (d.getDiscriminant() < 0){
+        if (d.getDiscriminant() < 0) {
             System.out.println("No roots");
-        } else  if (d.getDiscriminant() == 0) {
-           double x = (-b)/(2*a);
-           System.out.println("One root: " + x);
+        } else if (d.getDiscriminant() == 0) {
+            double x = (-b) / (2 * a);
+            System.out.println("One root: " + x);
         } else {
-            double x1 = (-b+Math.pow(d.getDiscriminant(), 0.5))/(2*a);
-            double x2 = (-b-Math.pow(d.getDiscriminant(), 0.5))/(2*a);
+            double x1 = (-b + Math.pow(d.getDiscriminant(), 0.5)) / (2 * a);
+            double x2 = (-b - Math.pow(d.getDiscriminant(), 0.5)) / (2 * a);
             System.out.println("Two roots: " + x1 + " and " + x2);
         }
     }

@@ -1,6 +1,6 @@
 package Second;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class Dice {
     public static Scanner in = new Scanner(System.in);
@@ -18,27 +18,28 @@ public class Dice {
         int iMax;
 
         do {
-            for (int i=0; i<N-1; i++){
-                System.out.println("Player " + (i+1) + "`s turn");
+            for (int i = 0; i < N - 1; i++) {
+                System.out.print("Player " + (i + 1) + "`s turn. Press Enter");
+                new java.util.Scanner(System.in).nextLine();
                 tries[i] = diceJet(result, K);
                 System.out.println("Result - " + tries[i]);
             }
             System.out.println("Computer`s turn");
-            tries[N-1] = diceJet(result, K);
-            System.out.println("Result - " + tries[N-1]);
+            tries[N - 1] = diceJet(result, K);
+            System.out.println("Result - " + tries[N - 1]);
 
             iMax = getMax(tries);
             wins[iMax]++;
 
             System.out.print("Score - ");
-            for (int i=0; i<N-1; i++){
+            for (int i = 0; i < N - 1; i++) {
                 System.out.print(wins[i] + ":");
             }
-            System.out.println(wins[N-1]);
+            System.out.println(wins[N - 1]);
 
-        } while (wins[iMax]<7);
+        } while (wins[iMax] < 7);
 
-        if (iMax<N-1) {
+        if (iMax < N - 1) {
             System.out.println("Player " + (iMax + 1) + " won");
         } else {
             System.out.println("Computer won");
@@ -46,26 +47,26 @@ public class Dice {
 
     }
 
-    public static int diceJet(int result, int K){
+    public static int diceJet(int result, int K) {
         result = 0;
         int min = 1;
         int max = 6;
 
-        for (int i=0; i<K; i++){
-            result += (int)(Math.random()* ++max) +min;
+        for (int i = 0; i < K; i++) {
+            result += (int) (Math.random() * ++max) + min;
         }
         return result;
     }
 
-    public static int getMax(int[] inputArray){
-            int maxValue = inputArray[0];
-            int iMaxValue = 0;
-            for(int i=1;i < inputArray.length;i++){
-                if(inputArray[i] > maxValue){
-                    maxValue = inputArray[i];
-                    iMaxValue = i;
-                }
+    public static int getMax(int[] inputArray) {
+        int maxValue = inputArray[0];
+        int iMaxValue = 0;
+        for (int i = 1; i < inputArray.length; i++) {
+            if (inputArray[i] > maxValue) {
+                maxValue = inputArray[i];
+                iMaxValue = i;
             }
+        }
         return iMaxValue;
     }
 }
